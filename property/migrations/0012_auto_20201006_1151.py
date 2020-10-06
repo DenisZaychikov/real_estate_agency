@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 def fill_owner_table(apps, schema_editor):
-    print('start fill_owner_table function')
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
     flats = Flat.objects.all()
