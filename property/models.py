@@ -42,7 +42,11 @@ class Complaint(models.Model):
 
 
 class Owner(models.Model):
-    owner_name = models.CharField("ФИО владельца", max_length=200)
-    owner_number = models.IntegerField('Номер владельца', db_index=True)
-    owner_pure_phone = PhoneNumberField(blank=True, verbose_name='Нормализованный номер владельца')
-    apartments = models.ManyToManyField(Flat, verbose_name='Квартиры в собственности', related_name='owners')
+    owner_name = models.CharField("ФИО владельца", max_length=200, db_index=True)
+    owner_number = models.CharField('Номер владельца', db_index=True, max_length=20)
+    owner_pure_phone = PhoneNumberField(blank=True, verbose_name='Нормализованный номер владельца', db_index=True)
+    apartments = models.ManyToManyField(Flat, verbose_name='Квартиры в собственности', related_name='owners',
+                                        db_index=True)
+
+    def __str__(self):
+        return self.owner_name
