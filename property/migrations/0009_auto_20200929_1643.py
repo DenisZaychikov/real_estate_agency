@@ -14,13 +14,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='flat',
             name='liked_by',
-            field=models.ManyToManyField(blank=True, related_name='liked_posts', to=settings.AUTH_USER_MODEL,
+            field=models.ManyToManyField(blank=True,
+                                         related_name='liked_posts',
+                                         to=settings.AUTH_USER_MODEL,
                                          verbose_name='Кто лайкнул'),
         ),
         migrations.AlterField(
             model_name='flat',
             name='owner_pure_phone',
-            field=phonenumber_field.modelfields.PhoneNumberField(blank=True, max_length=128, region=None,
+            field=phonenumber_field.modelfields.PhoneNumberField(blank=True,
+                                                                 max_length=128,
+                                                                 region=None,
                                                                  verbose_name='Нормализованный номер владельца'),
         ),
     ]

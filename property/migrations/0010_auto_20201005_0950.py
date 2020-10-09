@@ -9,7 +9,8 @@ def create_owner_pure_phone(apps, schema_editor):
     flats = Flat.objects.all()
     for flat in flats:
         parsed_number = phonenumbers.parse(flat.owners_phonenumber, 'RU')
-        flat.owner_pure_phone = phonenumbers.format_number(parsed_number, phonenumbers.PhoneNumberFormat.E164)
+        flat.owner_pure_phone = phonenumbers.format_number(parsed_number,
+                                                           phonenumbers.PhoneNumberFormat.E164)
         flat.save()
 
 

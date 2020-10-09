@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('property', '0006_auto_20200928_1031'),
@@ -15,6 +14,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='flat',
             name='liked_by',
-            field=models.ManyToManyField(related_name='liked_posts', to=settings.AUTH_USER_MODEL, verbose_name='Кто лайкнул'),
+            field=models.ManyToManyField(related_name='liked_posts',
+                                         to=settings.AUTH_USER_MODEL,
+                                         verbose_name='Кто лайкнул'),
         ),
     ]
